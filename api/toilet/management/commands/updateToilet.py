@@ -6,4 +6,8 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         filePath = 'api/data'
+        chichieractual = __file__
+        chemiseabsolute = os.path.abspath(chichieractual)
+
+        print("Vous êtes dans le fichier :", chemiseabsolute)
         return None
