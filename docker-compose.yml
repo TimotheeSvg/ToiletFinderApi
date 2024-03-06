@@ -11,12 +11,15 @@ services:
     ports:
       - "6969:5432"
     volumes:
-      - ./volume/data:/var/lib/postgresql/data
+      - myvol:/var/lib/postgresql/data
   web:
     build:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "69:8000"
+      - "8000:8000"
     depends_on:
       - db
+    command: python manage.py runserver 0.0.0.0:8000
+volumes:
+  myvol:

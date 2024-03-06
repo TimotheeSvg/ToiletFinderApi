@@ -4,5 +4,6 @@ from django.urls import path
 from toilet import views
 
 urlpatterns = [
-    path('toilet/', views.ToiletView.as_view()),
+    path('', views.index.as_view()),
+    path('toilet', views.ToiletView.as_view()),
 ]
