@@ -9,17 +9,17 @@ services:
       POSTGRES_USER: toiletteMaster
       POSTGRES_PASSWORD: fS3OFS6w52Z{5DiVj.VTts[[@
     ports:
-      - "6969:5432"
+      - "5433:5432"
     volumes:
-      - myvol:/var/lib/postgresql/data
-  web:
+      - database:/var/lib/postgresql/data
+  api:
     build:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8000:8000"
+      - "69:8000"
     depends_on:
       - db
     command: python manage.py runserver 0.0.0.0:8000
 volumes:
-  myvol:
+  database:

@@ -1,12 +1,14 @@
 FROM python:3
 
-RUN apt-get install && apt-get update
-
+# set work directory
 WORKDIR /usr/src/app
+
+# install dependencies
+RUN pip install --upgrade pip
+
+COPY /api/requirements.txt .
+
+RUN pip install -r requirements.txt
 
 COPY /api .
 
-RUN pip install --no-cache-dir -r requirements.txt
-RUN python manage.py migrate
-
-EXPOSE 8000

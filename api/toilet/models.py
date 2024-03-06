@@ -13,7 +13,6 @@ class Toilet(models.Model):
     toiletDirection = models.CharField(max_length=512, null=False, blank=False)
     toiletUpVote = models.IntegerField(default=0)
     toiletDownVote = models.IntegerField(default=0)
-    toiletDownVoteDeux = models.IntegerField(default=0)
     
 
     class Meta:
